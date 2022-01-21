@@ -17,12 +17,7 @@ export const Cards = ({ info }) => {
         marginTop: "15px",
       }}
     >
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        height="140"
-        image={info.img}
-      />
+      <CardMedia component="img" alt="img" height="140" image={info.img} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {info.header}
@@ -33,7 +28,7 @@ export const Cards = ({ info }) => {
       </CardContent>
       <CardActions>
         <Button variant="outlined" style={{ margin: "auto" }} size="small">
-          Learn More
+          Mehr Lernen
         </Button>
       </CardActions>
     </Card>

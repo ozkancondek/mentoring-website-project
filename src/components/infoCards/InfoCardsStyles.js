@@ -6,7 +6,6 @@ export const InfoCardsContainer = styled.div`
   flex-direction: row;
   margin: auto;
   margin-top: 80px;
-
   padding: 15px;
   align-items: center;
   justify-content: center;

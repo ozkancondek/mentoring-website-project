@@ -64,6 +64,9 @@ const useStyles = makeStyles(() => ({
       color: "wheat",
     },
   },
+  root: {
+    backgroundColor: "rgb(44, 98, 114)",
+  },
 }));
 
 export const Navbar = () => {
@@ -89,7 +92,7 @@ export const Navbar = () => {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" className={classes.root}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"

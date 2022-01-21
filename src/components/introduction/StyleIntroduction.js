@@ -11,6 +11,7 @@ export const CardContainer = styled.div`
 
   border-left: 30px solid grey;
   border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
 `;
 export const ImageContainer = styled.div`
   width: 400px;
@@ -23,7 +24,7 @@ export const ImageContainer = styled.div`
 `;
 export const ImageContainerH = styled.div`
   width: 80%;
-  height: 350px;
+  height: 400px;
   margin: auto;
   margin-top: 30px;
   background-image: url(${(props) => props.img});
@@ -37,7 +38,7 @@ export const ImageContainerH = styled.div`
   & {
     @media (max-width: 560px) {
       width: 70%;
-      height: 300px;
+      height: 350px;
     }
   }
 `;
@@ -51,7 +52,7 @@ export const TextContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 5px;
-
+  background-color: rgb(165, 225, 247);
   > div {
     display: flex;
     flex-direction: row;
