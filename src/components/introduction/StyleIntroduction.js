@@ -9,7 +9,7 @@ export const CardContainer = styled.div`
   align-items: center;
   width: 80%;
 
-  border-left: 30px solid grey;
+  border-left: 50px solid #43555a;
   border-bottom: 2px solid grey;
   border-top: 2px solid grey;
 `;

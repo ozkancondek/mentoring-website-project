@@ -5,10 +5,12 @@ import { ImageContainerH } from "../components/introduction/StyleIntroduction";
 import program from "../assets/monatlichprogram.PNG";
 import { Footer } from "../components/footer/Footer";
 import { ContainerWithButton } from "../components/textfotowithbutton/ContainerWithButton";
+import { AsideBar } from "../components/asideButtons/AsideBar";
 
 export const Home = () => {
   return (
     <div>
+      <AsideBar />
       <Introduction />
       <InfoCards firstCard={0} lastCard={3} />
       <ImageContainerH img={program} style={{ width: "80%" }} />
