@@ -19,6 +19,7 @@ import Divider from "@mui/material/Divider";
 import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import { makeStyles } from "@mui/styles";
 import { useState } from "react";
+import { Link } from "@mui/material";
 
 const pages = [
   ["Home", ["Vision", "Who we are", "Team", "Partners", "News"]],
@@ -134,7 +135,9 @@ export const Navbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page[0]}</Typography>
+                  <Link href={page[0].toLowerCase()} underline="none">
+                    {page[0]}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -145,7 +148,7 @@ export const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
-            LOGO
+            <CastForEducationIcon fontSize="large" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (

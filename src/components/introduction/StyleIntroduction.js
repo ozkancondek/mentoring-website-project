@@ -45,7 +45,7 @@ export const ImageContainerH = styled.div`
 export const TextContainer = styled.div`
   height: 450px;
   width: 40%;
-
+  overflow: auto;
   display: flex;
   flex-direction: column;
   line-height: 2;
@@ -63,7 +63,15 @@ export const TextContainer = styled.div`
   > * {
     font-size: 1.2rem;
     @media (max-width: 560px) {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 760px) {
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 960px) {
+      font-size: 1.1rem;
     }
     font-family: "Playfair Display", serif;
   }

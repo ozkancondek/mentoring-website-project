@@ -5,12 +5,12 @@ import { Error } from "./components/Error";
 import { ApiProvider } from "./context/ApiContext";
 import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./pages/Home";
+import { AppRouter } from "./router/AppRouter";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Home />
+      <AppRouter />
     </div>
   );
 }
