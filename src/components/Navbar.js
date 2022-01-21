@@ -20,6 +20,8 @@ import CastForEducationIcon from "@mui/icons-material/CastForEducation";
 import { makeStyles } from "@mui/styles";
 import { useState } from "react";
 import { Link } from "@mui/material";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const pages = [
   ["Home", ["Vision", "Who we are", "Team", "Partners", "News"]],
@@ -46,7 +48,7 @@ const pages = [
   ["Contact", []],
 ];
 const settings = ["Profile", "Settings", "Apply", "Talk to Advisor", "Logout"];
-const tools = ["Login"];
+const tools = ["App", "Login"];
 const useStyles = makeStyles(() => ({
   listItemText: {
     color: "black",
@@ -71,6 +73,8 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+  const { isAuth, setIsAuth } = useAuth();
   const classes = useStyles();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -101,7 +105,11 @@ export const Navbar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
           >
-            <CastForEducationIcon fontSize="large" />
+            <CastForEducationIcon
+              fontSize="large"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -148,6 +156,11 @@ export const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}
           >
+            <CastForEducationIcon
+              fontSize="large"
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
+            />
             <CastForEducationIcon fontSize="large" />
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -158,7 +171,13 @@ export const Navbar = () => {
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
-                  {page[0]}
+                  <Link
+                    href={page[0].toLowerCase()}
+                    underline="none"
+                    style={{ color: "white" }}
+                  >
+                    {page[0]}
+                  </Link>
                 </Button>
                 <Box
                   sx={{
@@ -187,47 +206,65 @@ export const Navbar = () => {
               </div>
             ))}
           </Box>
-          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
-            {tools.map((tool) => (
-              <Button
-                key={tool}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {tool}
-              </Button>
-            ))}
-          </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+          {!isAuth && (
+            <Box sx={{ flexGrow: 0, display: { xs: "block", md: "flex" } }}>
+              {tools.map((tool) => (
+                <Button
+                  key={tool}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                  style={{ border: "2px solid white", marginRight: "15px" }}
+                >
+                  <Link
+                    href={tool.toLowerCase()}
+                    underline="none"
+                    style={{ color: "white" }}
+                  >
+                    {tool}
+                  </Link>
+                </Button>
               ))}
-            </Menu>
-          </Box>
+            </Box>
+          )}
+
+          {isAuth && (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseNavMenu}>
+                    <Link
+                      href={setting.toLowerCase()}
+                      underline="none"
+                      style={{ color: "black" }}
+                    >
+                      {setting}
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>

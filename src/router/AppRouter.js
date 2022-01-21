@@ -13,6 +13,7 @@ import { Profile } from "../pages/Profile";
 import { Settings } from "../pages/Settings";
 import { Apply } from "../pages/Apply";
 import { TalkToAdvisor } from "../pages/TalkToAdvisor";
+import { Login } from "../pages/Login";
 import { Footer } from "../components/footer/Footer";
 
 export const AppRouter = () => {
@@ -22,11 +23,13 @@ export const AppRouter = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/mentoring" element={<Mentoring />} />
         <Route path="/mitmachen" element={<Mitmachen />} />
         <Route path="/events" element={<Events />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
         {isAuth ? (
           <Fragment>
             <Route path="/profile" element={<Profile />} />

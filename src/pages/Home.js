@@ -16,7 +16,6 @@ export const Home = () => {
       <ImageContainerH img={program} style={{ width: "80%" }} />
       <InfoCards firstCard={3} lastCard={6} />
       <ContainerWithButton />
-      <Footer />
     </div>
   );
 };

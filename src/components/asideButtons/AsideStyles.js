@@ -34,7 +34,7 @@ export const AsideButtonContainer = styled.div`
   justify-content: space-between;
   position: fixed;
   right: 0px;
-  top: 100px;
+  top: 150px;
 
   height: 280px;
   width: 80px;

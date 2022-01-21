@@ -52,7 +52,7 @@ export const TextContainer = styled.div`
   align-items: flex-start;
   justify-content: center;
   padding: 5px;
-  background-color: rgb(165, 225, 247);
+  background-color: rgb(176, 132, 238);
   > div {
     display: flex;
     flex-direction: row;
