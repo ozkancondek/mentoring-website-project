@@ -167,6 +167,8 @@ export const Navbar = () => {
             {pages.map((page) => (
               <div>
                 <Button
+                  /*   onMouseEnter={() => setHover(!hover)}
+                  onMouseOut={() => setHover(!hover)} */
                   key={page}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
@@ -186,6 +188,7 @@ export const Navbar = () => {
                     bgcolor: "background.paper",
                   }}
                 >
+                  {/*    ************************ */}
                   <nav
                     aria-label="main mailbox folders"
                     style={{ display: hover ? "none" : "inline-block" }}
